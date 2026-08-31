@@ -20,9 +20,10 @@ export const CONTACT_EMAIL = "buzztum.co.uk@gmail.com";
 // name a domain the site isn't served from will confuse search engines.
 export const SITE_URL = "https://www.buzztum.co.uk";
 
-// Country/state whose law governs the terms.
-// TODO: set this to your actual jurisdiction.
-export const JURISDICTION = "Pakistan";
+// Legal jurisdiction whose law governs the terms. The site is published in
+// the UK on a .co.uk domain, so the terms name England and Wales and the
+// privacy policy is written against UK GDPR and the Data Protection Act 2018.
+export const JURISDICTION = "England and Wales";
 
 // Year in the footer copyright line. Hardcoded rather than computed from
 // `new Date()`: this is a static export, so a computed year would be baked
@@ -32,7 +33,7 @@ export const COPYRIGHT_YEAR = "2026";
 
 // Date shown as "last updated" on the legal pages. Hardcoded on purpose:
 // it must reflect when the text last actually changed, not the build date.
-export const LEGAL_LAST_UPDATED = "23 August 2026";
+export const LEGAL_LAST_UPDATED = "30 August 2026";
 
 // Where the newsletter form POSTs. The site is a static export, so it has
 // no backend of its own - this must point at a form/newsletter service that

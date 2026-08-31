@@ -17,10 +17,12 @@ export default function Sec2({ categories }) {
         <div className="row mt-3 g-24">
           {categories.map((cat, i) => (
             <CategoryCard1
-              key={i}
-              classList="col-lg-2 col-sm-4 col-6"
+              key={cat.name}
+              classList="col-lg-3 col-sm-4 col-6"
               img={cat.img}
               category={cat.name}
+              count={cat.count}
+              tint={i}
               linkpage_category={`/category/${categorySlug(cat.name)}`}
             />
           ))}

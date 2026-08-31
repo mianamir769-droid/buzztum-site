@@ -54,6 +54,22 @@ function asText(v) {
   return String(v);
 }
 
+// Category and tag names arrive as CDATA, so the XML parser hands them back
+// with their HTML entities intact ("Pets &amp; Care"). React escapes on
+// output, so an undecoded name renders literally on the tile and in the
+// archive heading.
+function decodeEntities(str) {
+  return str
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;|&#039;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
 // Convert `[caption id="..." align="..." width="123"]<img ...> Caption text[/caption]`
 // into `<figure class="wp-caption"><img ... />Caption text</figure>`, same as
 // WordPress's img_caption_shortcode handler.
@@ -165,7 +181,7 @@ for (const item of items) {
   const tags = [];
   for (const cat of toArray(item.category)) {
     const domain = cat?.['@_domain'];
-    const name = asText(cat);
+    const name = decodeEntities(asText(cat)).trim();
     if (!name) continue;
     if (domain === 'post_tag') tags.push(name);
     else categories.push(name);
@@ -205,6 +221,21 @@ for (const post of posts) {
   const file = path.join(OUT_DIR, `${post.slug}.json`);
   fs.writeFileSync(file, JSON.stringify(post, null, 2), 'utf-8');
 }
+
+// WordPress's own category slugs, keyed by category name. The site keeps the
+// original permalinks, so a category archive has to live at the URL WordPress
+// gave it ("Pets & Care" was /category/pets-care, not pets-and-care) or the
+// links pointing at it break. categorySlug() falls back to deriving a slug
+// when a name is not in this map.
+const wpCategories = {};
+for (const cat of toArray(doc.rss.channel['wp:category'])) {
+  const name = decodeEntities(asText(cat['wp:cat_name'])).trim();
+  const nicename = asText(cat['wp:category_nicename']).trim();
+  if (name && nicename) wpCategories[name] = nicename;
+}
+const CATEGORY_MAP = path.join(__dirname, '..', 'src', 'content', 'categorySlugs.json');
+fs.writeFileSync(CATEGORY_MAP, JSON.stringify(wpCategories, null, 2), 'utf-8');
+console.log(`Wrote ${path.relative(process.cwd(), CATEGORY_MAP)} (${Object.keys(wpCategories).length} categories)`);
 
 const dupes = [...seenSlugs.entries()].filter(([, n]) => n > 1);
 if (dupes.length) {

@@ -1,11 +1,13 @@
 import StaticPage from "@/components/StaticPage";
 import { SITE_NAME, CONTACT_EMAIL, LEGAL_LAST_UPDATED } from "@/lib/siteConfig";
 
-// NOTE: generic boilerplate, not legal advice. It describes the setup this
-// site actually ships with (static hosting, a third-party newsletter form,
-// no accounts, no first-party analytics). If you add analytics, ads,
+// NOTE: not legal advice. It describes the setup this site actually ships
+// with (static hosting, a third-party newsletter form, no accounts, no
+// first-party analytics) and is written for a UK publisher, so it names the
+// lawful basis, retention, transfers and the ICO complaint route that UK
+// GDPR and the Data Protection Act 2018 require. If you add analytics, ads,
 // comments, or tracking pixels, this page must be updated to match, and it
-// is worth having a professional review it for your jurisdiction.
+// is worth having a professional review it.
 export default function PrivacyPolicy() {
   return (
     <StaticPage
@@ -16,7 +18,8 @@ export default function PrivacyPolicy() {
     >
       <h4 className="mb-0">Who we are</h4>
       <p className="text-700 m-0 fs-18">
-        {SITE_NAME} publishes articles across a range of topics. You can reach us at{" "}
+        {SITE_NAME} publishes articles across a range of topics. For the purposes of UK data protection law we are the data controller
+        for the limited personal information described below. You can reach us at{" "}
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-linear">
           {CONTACT_EMAIL}
         </a>
@@ -38,6 +41,26 @@ export default function PrivacyPolicy() {
         Newsletter signups are handled by a third-party email service. When you subscribe, your email address is submitted to and stored
         by that provider on our behalf, under their own privacy policy. You can unsubscribe at any time using the link in any email we
         send, or by emailing us directly, and we will remove your address.
+      </p>
+
+      <h4 className="mb-0">Why we are allowed to use it</h4>
+      <p className="text-700 m-0 fs-18">
+        Under UK GDPR we need a lawful basis for handling personal information. For the newsletter it is your consent, given when you
+        submit the signup form, and you can withdraw it at any time by unsubscribing. For the technical request data our host records, it
+        is our legitimate interest in serving the site and keeping it secure.
+      </p>
+
+      <h4 className="mb-0">How long we keep it</h4>
+      <p className="text-700 m-0 fs-18">
+        We keep your newsletter email address until you unsubscribe or ask us to remove it, after which it is deleted from our mailing
+        list. Server logs are kept only for the short retention period our hosting provider applies to them.
+      </p>
+
+      <h4 className="mb-0">Where your information is held</h4>
+      <p className="text-700 m-0 fs-18">
+        Our hosting and email providers operate internationally, so information may be processed on servers outside the United Kingdom.
+        Where that happens, those providers are required to protect it to a standard the UK recognises, using the safeguards UK data
+        protection law allows, such as the International Data Transfer Agreement or an adequacy decision.
       </p>
 
       <h4 className="mb-0">Hosting and server logs</h4>
@@ -68,7 +91,13 @@ export default function PrivacyPolicy() {
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-linear">
           {CONTACT_EMAIL}
         </a>{" "}
-        and we will respond.
+        and we will respond within one month.
+      </p>
+      <p className="text-700 m-0 fs-18">
+        If you are in the United Kingdom, those rights come from UK GDPR and the Data Protection Act 2018, and they include access,
+        correction, erasure, restriction, portability, objection, and the right to withdraw consent at any time. If you are not happy
+        with how we have handled a request, you can complain to the Information Commissioner&rsquo;s Office at ico.org.uk, though we would
+        rather you came to us first so we can put it right.
       </p>
 
       <h4 className="mb-0">Children</h4>

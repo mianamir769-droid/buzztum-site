@@ -1,3 +1,8 @@
+// WordPress's own category slugs, written by scripts/import-wxr.mjs. A
+// category archive must keep the URL WordPress gave it, so this map wins
+// over the derived slug below.
+import WP_CATEGORY_SLUGS from '@/content/categorySlugs.json';
+
 // Pure formatting helpers with no node:fs/node:path dependency - safe to
 // import from components that render client-side (unlike src/lib/posts.js,
 // which reads from disk and must stay server-only).
@@ -45,8 +50,15 @@ export function primaryCategory(categories) {
 
 // "Digital Marketing" -> "digital-marketing". Used for /category/<slug> URLs.
 export function categorySlug(name) {
+  const known = WP_CATEGORY_SLUGS[String(name || '').trim()];
+  if (known) return known;
   return String(name || '')
     .toLowerCase()
+    // Decompose accented letters and drop the combining marks, so "Home
+    // Decor" written with an accent slugs to home-decor rather than losing the
+    // letter entirely (home-d-cor) and breaking the WordPress URL it inherits.
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');

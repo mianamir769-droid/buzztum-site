@@ -203,15 +203,14 @@ export function getHomepageData() {
   const [latestFeatured] = take(1);
   const latestGrid = take(4);
 
-  // Category tiles are photo tiles by design (no text-only variant), so
-  // only list categories that have a verified-image representative.
-  const categories = getCategoryCounts(50)
-    .map((c) => {
-      const rep = withVerifiedImage.find((p) => (p.categories || []).includes(c.name));
-      return rep ? { ...c, img: extractFirstImage(rep.contentHtml) } : null;
-    })
-    .filter(Boolean)
-    .slice(0, 12);
+  // Every real category the imported site actually has, most-used first.
+  //
+  // These were photo tiles in the template, keyed off whichever post in the
+  // category happened to have a working image. With almost every embedded
+  // image dead on the origin server that left four tiles, each showing a
+  // photo that read as unrelated to its label. The tiles are brand-tinted
+  // instead: no photo, real post counts, and the full topic list.
+  const categories = getCategoryCounts(50);
 
   return {
     hero: hero.map(toSummary),

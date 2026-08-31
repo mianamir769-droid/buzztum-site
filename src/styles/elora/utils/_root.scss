@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'colors' as *;
 @use 'typography' as *;
 :root {
@@ -25,6 +26,9 @@
             --tc-#{$color}-#{"" + $shade}: #{$value};
         }
     }
+    // Hue of $brand-1, so the photoless category tiles can derive their own
+    // shades from the brand without another hard-coded hex.
+    --tile-brand-h: #{color.channel($brand-1, "hue", $space: hsl)};
     //@Font Weight Declaration
     @each $fw, $shades in $font-weight {
         @each $shade, $value in $shades {

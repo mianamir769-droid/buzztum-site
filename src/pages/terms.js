@@ -1,9 +1,10 @@
 import StaticPage from "@/components/StaticPage";
 import { SITE_NAME, CONTACT_EMAIL, JURISDICTION, LEGAL_LAST_UPDATED } from "@/lib/siteConfig";
 
-// NOTE: generic boilerplate, not legal advice. Check the governing-law
-// section matches where you actually operate, and have it reviewed before
-// relying on it.
+// NOTE: not legal advice. Written for a UK publisher: governing law is
+// England and Wales, and the liability section is qualified so it does not
+// purport to exclude what UK consumer law does not allow to be excluded.
+// Have it reviewed before relying on it.
 export default function Terms() {
   return (
     <StaticPage
@@ -56,6 +57,11 @@ export default function Terms() {
         on, this site or its content. The site is provided on an &ldquo;as is&rdquo; basis, and we do not warrant that it will always be
         available or uninterrupted.
       </p>
+      <p className="text-700 m-0 fs-18">
+        Nothing in these terms limits or excludes our liability for death or personal injury caused by negligence, for fraud, or for
+        anything else that cannot be limited or excluded under the law of England and Wales. If you use this site as a consumer, your
+        statutory rights are not affected.
+      </p>
 
       <h4 className="mb-0">Newsletter</h4>
       <p className="text-700 m-0 fs-18">
@@ -74,7 +80,11 @@ export default function Terms() {
       </p>
 
       <h4 className="mb-0">Governing law</h4>
-      <p className="text-700 m-0 fs-18">These terms are governed by the laws of {JURISDICTION}.</p>
+      <p className="text-700 m-0 fs-18">
+        These terms are governed by the laws of {JURISDICTION}, and the courts of {JURISDICTION} have jurisdiction over any dispute
+        arising from them. If you are a consumer resident elsewhere in the United Kingdom, you keep the protection of your local
+        mandatory consumer law and may bring proceedings in your own courts.
+      </p>
 
       <h4 className="mb-0">Contact</h4>
       <p className="text-700 m-0 fs-18">

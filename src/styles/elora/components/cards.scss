@@ -1,3 +1,13 @@
+// Most posts imported from WordPress have no working image, and every card
+// renders its <img> conditionally rather than substituting a placeholder. The
+// wrapper still reserves its fixed height though, which left a tall blank gap
+// above the title on archive and category listings, so collapse the image
+// area entirely when there is no image inside it.
+.card-img:not(:has(img)),
+.card-img-top:not(:has(img)) {
+    display: none;
+}
+
 // card article
 .article {
     &:hover {
@@ -861,6 +871,32 @@
             .post-count {
                 color: var(--tc-system-white);
             }
+        }
+
+        // Photoless variant: used when a category has no post with a working
+        // image, which on an imported site is most of them. --tile-tint is the
+        // tile's index, turned into a small step in lightness and hue so a full
+        // grid of them does not read as one flat block of colour.
+        &.no-image {
+            background: linear-gradient(
+                135deg,
+                hsl(calc(var(--tile-brand-h) + var(--tile-tint) * 1.6deg) 62% calc(34% + var(--tile-tint) * 0.9%)) 0%,
+                hsl(calc(var(--tile-brand-h) + 14deg + var(--tile-tint) * 1.6deg) 70% calc(46% + var(--tile-tint) * 0.9%)) 100%
+            );
+
+            .post-content {
+                position: static;
+                transform: none;
+                width: 100%;
+                padding: 0 12px;
+                gap: 8px;
+            }
+
+            .post-count {
+                color: var(--tc-system-white);
+                opacity: 0.85;
+            }
+
         }
     }
 
