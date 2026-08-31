@@ -1,0 +1,95 @@
+{
+  "spotlight": [
+    {
+      "img": "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "linkPost": "/savings-and-convenience-when-buying-books-in-collections",
+      "category": "Entertainment",
+      "title": "Savings and Convenience When Buying Books in Collections",
+      "date": "Dec 1, 2024"
+    },
+    {
+      "img": "https://i.postimg.cc/DZ4Tx1fw/Ascot-Mortgages-34.png",
+      "linkPost": "/protect-your-home-and-family-with-mortgage-protection-insurance",
+      "category": "Home Décor",
+      "title": "Protect Your Home and Family with Mortgage Protection Insurance",
+      "date": "Oct 6, 2024"
+    },
+    {
+      "img": "https://prana.ua/wp-content/uploads/2023/12/indoor_air_quality_690x390-690x390.png",
+      "linkPost": "/prana-recuperators-enhancing-indoor-air-quality-with-energy-savings",
+      "category": "Business",
+      "title": "Prana Recuperators: Enhancing Indoor Air Quality With Energy Savings",
+      "date": "Sep 30, 2024"
+    },
+    {
+      "img": "https://artimg.info/66598d96f1ed6.webp",
+      "linkPost": "/exploring-the-challenges-and-rewards-of-nerubar-palace-in-the-war-within-expansion",
+      "category": "Gaming",
+      "title": "Exploring the Challenges and Rewards of Nerub'ar Palace in The War Within Expansion",
+      "date": "May 31, 2024"
+    }
+  ],
+  "trending": [
+    {
+      "img": null,
+      "linkPost": "/how-next-generation-computing-is-reshaping-personal-finance",
+      "category": "Technology",
+      "title": "How Next-Generation Computing is Reshaping Personal Finance",
+      "date": "Jul 12, 2026"
+    },
+    {
+      "img": null,
+      "linkPost": "/modern-presentation-documents-in-contemporary-business",
+      "category": "Business",
+      "title": "Modern Presentation Documents in Contemporary Business",
+      "date": "Jul 4, 2026"
+    },
+    {
+      "img": null,
+      "linkPost": "/usa-family-tours-with-flamingo-travels",
+      "category": "Travel",
+      "title": "USA Family Tours with Flamingo Travels: What to Expect",
+      "date": "Jun 14, 2026"
+    },
+    {
+      "img": null,
+      "linkPost": "/businesses-are-replacing-their-agency-with-a-small-freelance-team",
+      "category": "Digital Marketing",
+      "title": "Why Growing Businesses Are Replacing Their Agency With a Small Freelance Team",
+      "date": "Jun 14, 2026"
+    }
+  ],
+  "tags": [
+    "Featured",
+    "Azeroth",
+    "Nerubian lore",
+    "WoW boss encounters",
+    "WoW Nerub'ar Palace",
+    "WoW raid guide",
+    "WoW raid modes",
+    "WoW raid rewards",
+    "WoW raid strategies"
+  ],
+  "categories": [
+    {
+      "name": "Business",
+      "slug": "business",
+      "count": 36
+    },
+    {
+      "name": "Gaming",
+      "slug": "gaming",
+      "count": 23
+    },
+    {
+      "name": "Digital Marketing",
+      "slug": "digital-marketing",
+      "count": 15
+    },
+    {
+      "name": "Entertainment",
+      "slug": "entertainment",
+      "count": 15
+    }
+  ]
+}
